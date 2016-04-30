@@ -13,3 +13,11 @@ module Tweetlength
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+class HelloController < ActionController::Base
+  protect_from_forgery with: :exception
+  
+  def world
+    render plain: "Hello World!"
+  end
+end
