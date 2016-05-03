@@ -6,14 +6,8 @@ module Tweetlength
     config.secret_key_base = "X"
 
     routes.draw do
-      root to: "hello#world"
+      root to: Proc.new { |_e| [200, {}, "Hello World!"]}
     end
-  end
-end
-
-class HelloController < ActionController::Base
-  def world
-    render plain: "Hello World!"
   end
 end
 
