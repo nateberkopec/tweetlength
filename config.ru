@@ -1,12 +1,1 @@
-require 'rails'
-require "action_controller/railtie"
-
-class Tweetlength < Rails::Application
-  config.secret_key_base = "X"
-
-  routes.draw do
-    root to: Proc.new { |_e| [200, {}, "Hello World!"]}
-  end
-end
-
-run Rails.application.initialize!
+%w[rails action_controller].map{|r|require r};run Class.new(Rails::Application){config.secret_key_base=?x;routes.append{root to:proc{[200,{},[]]}}}.initialize!
