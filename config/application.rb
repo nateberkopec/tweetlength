@@ -1,5 +1,6 @@
-require_relative 'boot'
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
 
+require 'bundler/setup' # Set up gems listed in the Gemfile.
 require 'rails'
 
 # require "active_record/railtie"
@@ -20,7 +21,6 @@ module Tweetlength
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
     config.cache_classes = true
     config.eager_load = true
     config.consider_all_requests_local       = false
@@ -35,7 +35,7 @@ module Tweetlength
       logger.formatter = config.log_formatter
       config.logger = ActiveSupport::TaggedLogging.new(logger)
     end
-    
+
     config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
     routes.draw do
