@@ -22,6 +22,10 @@ module Tweetlength
     # -- all .rb files in that directory are automatically loaded.
 
     config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
+    routes.draw do
+      root to: "hello#world"
+    end
   end
 end
 
